@@ -1,0 +1,9 @@
+namespace MyTunes
+{
+    [default_interface]
+    runtimeclass HeaderControl : Microsoft.UI.Xaml.Controls.UserControl
+    {
+        HeaderControl();
+        Int32 MyProperty;
+    }
+}

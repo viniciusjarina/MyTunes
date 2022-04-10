@@ -1,0 +1,9 @@
+namespace MyTunes
+{
+    [default_interface]
+    runtimeclass MainWindow : Microsoft.UI.Xaml.Window
+    {
+        MainWindow();
+        Windows.Foundation.Collections.IVector<IInspectable> Musics{ get; };
+    }
+}

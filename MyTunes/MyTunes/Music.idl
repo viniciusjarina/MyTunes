@@ -1,0 +1,14 @@
+namespace MyTunes
+{
+    [bindable]
+    [default_interface]
+    runtimeclass Music
+    {
+        Music();
+        Music(String albumTitle, String artworkURL, String songTitle, String artist);
+        String AlbumTitle;
+        Microsoft.UI.Xaml.Media.ImageSource AlbumArtworkURL;
+        String SongTitle;
+        String Artist;
+    }
+}
