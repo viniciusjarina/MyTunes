@@ -7,7 +7,31 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     >
-    <NavigationView PaneTitle="Music"
+    <Page>
+        <Page.Resources>
+            <DataTemplate x:Key="AlbumTemplate"  x:DataType="local:Music" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="4" Background="DarkGray">
+                        <Image x:Name="AlbumArtwork"
+                            Stretch="UniformToFill"
+                            Width="200"
+                            Height="200"
+                            Source="{x:Bind AlbumArtworkURL}" 
+                            >
+                        </Image>
+                    </Border>
+                    <StackPanel HorizontalAlignment="Left" Grid.Row="1">
+                        <TextBlock Text="{x:Bind AlbumTitle}" FontWeight="SemiBold"></TextBlock>
+                        <TextBlock Text="{x:Bind Artist}"  FontWeight="SemiLight"></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </Page.Resources>
+        <NavigationView PaneTitle="Music"
                     IsSettingsVisible="False"
                     IsBackButtonVisible="Collapsed"
                     IsBackEnabled="False"
@@ -60,16 +84,32 @@
                 </NavigationViewItem.Icon>
             </NavigationViewItem>
         </NavigationView.MenuItems>
-        <Grid Background="Blue" >
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <local:HeaderControl Grid.Row="0" x:Name="header">
             </local:HeaderControl>
-            <GridView Grid.Row="1" Background="Yellow" ItemsSource="{Binding Musics, Mode=OneWay}">
+
+            <GridView Grid.Row="1" x:Name="albumList"
+                      ItemTemplate="{StaticResource AlbumTemplate}"
+                      Margin="10 5 10 0"
+                      >
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="8, 5, 8, 5"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
                 
             </GridView>
         </Grid>
     </NavigationView>
+    </Page>
 </Window>

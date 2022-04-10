@@ -4,6 +4,5 @@ namespace MyTunes
     runtimeclass HeaderControl : Microsoft.UI.Xaml.Controls.UserControl
     {
         HeaderControl();
-        Int32 MyProperty;
     }
 }

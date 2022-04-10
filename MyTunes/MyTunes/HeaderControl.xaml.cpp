@@ -16,14 +16,4 @@ namespace winrt::MyTunes::implementation
     {
         InitializeComponent();
     }
-
-    int32_t HeaderControl::MyProperty()
-    {
-        throw hresult_not_implemented();
-    }
-
-    void HeaderControl::MyProperty(int32_t /* value */)
-    {
-        throw hresult_not_implemented();
-    }
 }
